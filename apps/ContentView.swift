@@ -10,7 +10,7 @@ import WebKit
 
 struct ContentView: View {
     var body: some View {
-        WebView(url: URL(string: "https://apps.hyunsub.kim")!)
+        UIWebView(url: URL(string: "https://apps.hyunsub.kim")!)
             .ignoresSafeArea()
             .preferredColorScheme(.dark)
     }
@@ -22,21 +22,13 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct WebView: UIViewRepresentable {
+struct UIWebView: UIViewRepresentable {
     let url: URL
-    let webview = WKWebView()
+    let webview = WebView()
 
     func makeUIView(context: Context) -> WKWebView {
         let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
         webview.load(request)
-        webview.allowsBackForwardNavigationGestures = true
-        webview.scrollView.addSubview(RefreshControl(webview: webview))
-        webview.evaluateJavaScript("navigator.userAgent") { [weak webview] (result, error) in
-            if let webView = webview, let userAgent = result as? String {
-                webView.customUserAgent = userAgent + " Hyunsub/1.0.0"
-            }
-        }
-
         return webview
     }
 
@@ -46,22 +38,28 @@ struct WebView: UIViewRepresentable {
     }
 }
 
-class RefreshControl: UIRefreshControl {
-    let webview: WKWebView
+class WebView: WKWebView {
+    init() {
+        super.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
+        super.scrollView.addSubview(refreshControl)
 
-    init(webview: WKWebView) {
-        self.webview = webview
-        super.init()
-        self.addTarget(webview, action: #selector(reloadWebView(_:)), for: .valueChanged)
+        super.allowsBackForwardNavigationGestures = true
+        
+        super.evaluateJavaScript("navigator.userAgent") { [weak self] (result, error) in
+            if let webView = self, let userAgent = result as? String {
+                webView.customUserAgent = userAgent + " Hyunsub/1.0.0"
+            }
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 
     @objc func reloadWebView(_ sender: UIRefreshControl) {
-        webview.reload()
+        super.reload()
         sender.endRefreshing()
-    }
-
-    required init?(coder: NSCoder) {
-        self.webview = WKWebView()
-        super.init(coder: coder)
     }
 }
