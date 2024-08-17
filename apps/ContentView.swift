@@ -52,6 +52,10 @@ class WebView: WKWebView {
                 webView.customUserAgent = userAgent + " Hyunsub/1.0.0"
             }
         }
+
+        if #available(iOS 16.4, *) {
+            super.isInspectable = true
+        }
     }
     
     required init?(coder: NSCoder) {
