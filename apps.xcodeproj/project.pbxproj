@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE00000100000001LOCATION /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00000200000002LOCATION /* LocationManager.swift */; };
+		CE00000300000003TIMELINE /* TimelineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00000400000004TIMELINE /* TimelineAPI.swift */; };
+		CE00000500000005APPDELEG /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00000600000006APPDELEG /* AppDelegate.swift */; };
+		CE00000700000007LOGGERXX /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00000800000008LOGGERXX /* Logger.swift */; };
 		CE85E6F9298E989E00260A53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE85E6F8298E989E00260A53 /* LaunchScreen.storyboard */; };
 		CEAC1FE4297EB47E0027964F /* appsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC1FE3297EB47E0027964F /* appsApp.swift */; };
 		CEAC1FE6297EB47E0027964F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC1FE5297EB47E0027964F /* ContentView.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE00000200000002LOCATION /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CE00000400000004TIMELINE /* TimelineAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineAPI.swift; sourceTree = "<group>"; };
+		CE00000600000006APPDELEG /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE00000800000008LOGGERXX /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		CE5174C6297EB72B00E54D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE85E6F8298E989E00260A53 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEAC1FE0297EB47E0027964F /* apps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +108,11 @@
 			children = (
 				CE5174C6297EB72B00E54D77 /* Info.plist */,
 				CEAC1FE3297EB47E0027964F /* appsApp.swift */,
+				CE00000600000006APPDELEG /* AppDelegate.swift */,
 				CEAC1FE5297EB47E0027964F /* ContentView.swift */,
+				CE00000200000002LOCATION /* LocationManager.swift */,
+				CE00000400000004TIMELINE /* TimelineAPI.swift */,
+				CE00000800000008LOGGERXX /* Logger.swift */,
 				CEAC1FE7297EB4800027964F /* Assets.xcassets */,
 				CEAC1FE9297EB4800027964F /* Preview Content */,
 			);
@@ -264,6 +276,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAC1FE6297EB47E0027964F /* ContentView.swift in Sources */,
+				CE00000100000001LOCATION /* LocationManager.swift in Sources */,
+				CE00000300000003TIMELINE /* TimelineAPI.swift in Sources */,
+				CE00000500000005APPDELEG /* AppDelegate.swift in Sources */,
+				CE00000700000007LOGGERXX /* Logger.swift in Sources */,
 				CEAC1FE4297EB47E0027964F /* appsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
